@@ -1,13 +1,12 @@
-
-
 const h = document.querySelectorAll('.searchbtn');
 
 for(let i = 0;i<h.length;i++){
 	h[i].addEventListener('click', function(event){
 		if(`${event.target.innerText}`=="Search"){
-		var input = document.getElementByName('in')
+		var input = document.getElementByName(in)
 		
 		<! –– input the search parameters into a URL to retreive the information to a JSON format ––>
+		
 			
 		GBAPI = require('/search.js'); gb = new GBAPI('ee41388b110b8eeb546964c09ff9f87f87767ef9');
 		gb.platforms()
@@ -43,6 +42,12 @@ for(let i = 0;i<h.length;i++){
 			url += path+"?"
 			url += qs.stringify(params)
 			return url
-		}			
+		}	
+
+		<! –– output search ––>
+		$("#output").html();
+		for(var i=0;i<data[1].length;i++){
+			$("#output").prepend("<div><div class='well'><a href="+data[3][i]+"><h2>"
+		}
 	});
 }
