@@ -7,7 +7,7 @@ for(let i = 0;i<h.length;i++){
 		if(`${event.target.innerText}`=="Search"){
 		var input = document.getElementByName('in')
 		
-		<! –– input the search parameters into a URL to retreive the information to in JSON format ––>
+		<! –– input the search parameters into a URL to retreive the information to a JSON format ––>
 			
 		GBAPI = require('/search.js'); gb = new GBAPI('ee41388b110b8eeb546964c09ff9f87f87767ef9');
 		gb.platforms()
@@ -19,7 +19,7 @@ for(let i = 0;i<h.length;i++){
 
 		function GBAPI (key, baseLimit){
 			this.apiKey = key
-			this.baseLimit = baseLimit || 100
+			this.baseLimit = baseLimit || 1000
 			
 		}
 
@@ -30,6 +30,7 @@ for(let i = 0;i<h.length;i++){
 			params.query = input
 			params.limit = params.limit || this.baseLimit
 			params.format  = 'json'
+			params.resources = 'game'
 			
 			if( params.page ){ 
 				params.offset = (params.page - 1)*this.baseLimit
