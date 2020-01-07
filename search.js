@@ -1,27 +1,25 @@
-let input = "";
 
-const output = document.querySelector('.out');
+
 const h = document.querySelectorAll('.searchbtn');
-const j = document.querySelectorAll('.detailbtn');
 
 for(let i = 0;i<h.length;i++){
 	h[i].addEventListener('click', function(event){
 		if(`${event.target.innerText}`=="Search"){
-		input = search
+		var input = document.getElementByName('in')
+		
+		<! –– input the search parameters into a URL to retreive the information to in JSON format ––>
 			
-		GBAPI = require('/search.js'); gb = new GBAPI('ee41388b110b8eeb546964c09ff9f87f87767ef9', 3);
+		GBAPI = require('/search.js'); gb = new GBAPI('ee41388b110b8eeb546964c09ff9f87f87767ef9');
 		gb.platforms()
 
 
 		var request = require('request')
-			, base_url = 'http://api.giantbomb.com/search/'
+			, base_url = 'http://giantbomb.com/api/search/'
 			,	qs = require('qs')
 
-		function GBAPI (key, baseLimit, cacheHours){
+		function GBAPI (key, baseLimit){
 			this.apiKey = key
 			this.baseLimit = baseLimit || 100
-			this.cacheHours = cacheHours || 0
-			this.cache = {}
 			
 		}
 
@@ -40,7 +38,6 @@ for(let i = 0;i<h.length;i++){
 				params.offset = params.offset || 0
 			}
 
-			
 			var url = base_url
 			url += path+"?"
 			url += qs.stringify(params)
